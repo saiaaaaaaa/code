@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code</title>
+    <style>
+      :root {
+        --gray: #DDDDDD;
+      }
+      * {
+        font-family: system-ui, Arial, sans-serif;
+        margin: 0;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        font-size: 20px;
+        padding: 8px;
+      }
+      p {
+        padding: 0 8px;
+      }
+      body {
+        display: flex;
+      }
+      #table_of_contents {
+        border-right: solid var(--gray) 1px;
+        height: 100vh;
+        max-width: 300px;
+        min-width: 300px;
+        overflow-y: scroll;
+      }
+      #table_of_contents > ul {
+        margin-bottom: 24px;
+      }
+      #main_page {
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: fill-available;
+      }
+      .code_snippet {
+        background-color: var(--gray);
+        border-radius: 8px;
+        margin: 8px;
+        padding: 8px;
+      }
+      .code_snippet > p {
+        font-family: Monospace, Monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table_of_contents">
+      <h1>Table of Contents</h1>
+      <ul>
+        <li><a href="#Java">Java</a></li>
+        <ul>
+          <li><a href="#Java-Variables">Variables</a></li>
+          <ul>
+            <li><a href="#Java-Variables-String">String</a></li>
+            <li><a href="#Java-Variables-Integer">Integer</a></li>
+            <li><a href="#Java-Variables-Double">Double</a></li>
+            <li><a href="#Java-Variables-Character">Character</a></li>
+            <li><a href="#Java-Variables-Boolean">Boolean</a></li>
+          </ul>
+          <li><a href="#Java-Operators">Operators</a></li>
+          <ul>
+            <li><a href="#Java-Operators-Math">Math Operators</a></li>
+            <ul>
+              <li><a href="#Java-Operators-Math-Addition">Addition</a></li>
+              <li><a href="#Java-Operators-Math-Subtraction">Subtraction</a></li>
+              <li><a href="#Java-Operators-Math-Multiplication">Multiplication</a></li>
+              <li><a href="#Java-Operators-Math-Division">Division</a></li>
+              <li><a href="#Java-Operators-Math-Modulo">Modulo</a></li>
+              <li><a href="#Java-Operators-Math-Increment">Increment</a></li>
+              <li><a href="#Java-Operators-Math-Decrement">Decrement</a></li>
+            </ul>
+            <li><a href="#Java-Operators-Assignment">Assignment Operators</a></li>
+            <ul>
+              <li><a href="#Java-Operators-Assignment-Assignment">Assignment</a></li>
+              <li><a href="#Java-Operators-Assignment-Addition">Addition and Assignment</a></li>
+              <li><a href="#Java-Operators-Assignment-Subtraction">Subtraction and Assignment</a></li>
+              <li><a href="#Java-Operators-Assignment-Multiplication">Multiplication and Assignment</a></li>
+              <li><a href="#Java-Operators-Assignment-Division">Division and Assignment</a></li>
+            </ul>
+            <li><a href="#Java-Operators-Conditional">Conditional Operators</a></li>
+            <ul>
+              <li><a href="#Java-Operators-Conditional-IsEqualTo">Equal to</a></li>
+              <li><a href="#Java-Operators-Conditional-IsNotEqualTo">Not equal to</a></li>
+              <li><a href="#Java-Operators-Conditional-IsLessThan">Less than</a></li>
+              <li><a href="#Java-Operators-Conditional-IsGreaterThan">Greater than</a></li>
+              <li><a href="#Java-Operators-Conditional-IsLessThanOrEqualTo">Less than or equal to</a></li>
+              <li><a href="#Java-Operators-Conditional-IsGreaterThanOrEqualTo">Greater than or equal to</a></li>
+            </ul>
+            <li><a href="#Java-Operators-Logical">Logical Operators</a></li>
+            <ul>
+              <li><a href="#Java-Operators-Logical-And">And</a></li>
+              <li><a href="#Java-Operators-Logical-Or">Or</a></li>
+              <li><a href="#Java-Operators-Logical-Not">Not</a></li>
+            </ul>
+          </ul>
+          <li><a href="#Java-Basics">Basics</a></li>
+          <ul>
+            <li><a href="#Java-Basics-WhatYouNeedToKnow">What you need to know</a></li>
+            <li><a href="#Java-Basics-Output">Output</a></li>
+            <li><a href="#Java-Basics-Input">Input</a></li>
+            <li><a href="#Java-Basics-Conditional">Conditional Statements</a></li>
+            <li><a href="#Java-Basics-Looping">Looping Statements</a></li>
+            <ul>
+              <li><a href="#Java-Basics-Looping-While">While</a></li>
+              <li><a href="#Java-Basics-Looping-For">For</a></li>
+              <li><a href="#Java-Basics-Looping-DoWhile">Do...While</a></li>
+            </ul>
+          </ul>
+        </ul>
+        <li><a href="#CSharp">C#</a></li>
+        <ul>
+          <li><a href="#CSharp-Variables">Variables</a></li>
+          <ul>
+            <li><a href="#CSharp-Variables-String">String</a></li>
+            <li><a href="#CSharp-Variables-Integer">Integer</a></li>
+            <li><a href="#CSharp-Variables-Double">Double</a></li>
+            <li><a href="#CSharp-Variables-Character">Character</a></li>
+            <li><a href="#CSharp-Variables-Boolean">Boolean</a></li>
+          </ul>
+          <li><a href="#CSharp-Operators">Operators</a></li>
+          <ul>
+            <li><a href="#CSharp-Operators-Math">Math Operators</a></li>
+            <ul>
+              <li><a href="#CSharp-Operators-Math-Addition">Addition</a></li>
+              <li><a href="#CSharp-Operators-Math-Subtraction">Subtraction</a></li>
+              <li><a href="#CSharp-Operators-Math-Multiplication">Multiplication</a></li>
+              <li><a href="#CSharp-Operators-Math-Division">Division</a></li>
+              <li><a href="#CSharp-Operators-Math-Modulo">Modulo</a></li>
+              <li><a href="#CSharp-Operators-Math-Increment">Increment</a></li>
+              <li><a href="#CSharp-Operators-Math-Decrement">Decrement</a></li>
+            </ul>
+            <li><a href="#CSharp-Operators-Assignment">Assignment Operators</a></li>
+            <ul>
+              <li><a href="#CSharp-Operators-Assignment-Assignment">Assignment</a></li>
+              <li><a href="#CSharp-Operators-Assignment-Addition">Addition and Assignment</a></li>
+              <li><a href="#CSharp-Operators-Assignment-Subtraction">Subtraction and Assignment</a></li>
+              <li><a href="#CSharp-Operators-Assignment-Multiplication">Multiplication and Assignment</a></li>
+              <li><a href="#CSharp-Operators-Assignment-Division">Division and Assignment</a></li>
+            </ul>
+            <li><a href="#CSharp-Operators-Conditional">Conditional Operators</a></li>
+            <ul>
+              <li><a href="#CSharp-Operators-Conditional-IsEqualTo">Equal to</a></li>
+              <li><a href="#CSharp-Operators-Conditional-IsNotEqualTo">Not equal to</a></li>
+              <li><a href="#CSharp-Operators-Conditional-IsLessThan">Less than</a></li>
+              <li><a href="#CSharp-Operators-Conditional-IsGreaterThan">Greater than</a></li>
+              <li><a href="#CSharp-Operators-Conditional-IsLessThanOrEqualTo">Less than or equal to</a></li>
+              <li><a href="#CSharp-Operators-Conditional-IsGreaterThanOrEqualTo">Greater than or equal to</a></li>
+            </ul>
+            <li><a href="#CSharp-Operators-Logical">Logical Operators</a></li>
+            <ul>
+              <li><a href="#CSharp-Operators-Logical-And">And</a></li>
+              <li><a href="#CSharp-Operators-Logical-Or">Or</a></li>
+              <li><a href="#CSharp-Operators-Logical-Not">Not</a></li>
+            </ul>
+          </ul>
+          <li><a href="#CSharp-Basics">Basics</a></li>
+          <ul>
+            <li><a href="#CSharp-Basics-WhatYouNeedToKnow">What you need to know</a></li>
+            <li><a href="#CSharp-Basics-Output">Output</a></li>
+            <li><a href="#CSharp-Basics-Input">Input</a></li>
+            <li><a href="#CSharp-Basics-Conditional">Conditional Statements</a></li>
+            <li><a href="#CSharp-Basics-Looping">Looping Statements</a></li>
+            <ul>
+              <li><a href="#CSharp-Basics-Looping-While">While</a></li>
+              <li><a href="#CSharp-Basics-Looping-For">For</a></li>
+              <li><a href="#CSharp-Basics-Looping-DoWhile">Do...While</a></li>
+            </ul>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+    <div id="main_page">
+      <h1 id="Java">Java</h1>
+      <h2 id="Java-Variables">Variables</h2>
+      <p>These store data for processing.</p>
+      <p>A variable is given a <strong>data type</strong> and a <strong>name</strong> (or <strong>identifier</strong>).</p>
+      <p>A <strong>data type</strong> tells the system what kind of data it should store and a <strong>name</strong> or an <strong>identifier</strong> is set by a programmer to uniquely reference a specific data.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>String name = "Bob";</p>
+        <p>int age = 18;</p>
+        <p>double grade = 85.25;</p>
+        <p>char gradeLetter = 'B';</p>
+        <p>boolean isOnline = false;</p>
+      </div>
+      <h2 id="Java-Variables-String">String</h2>
+      <p><strong>Strings</strong> store a sequence of characters and are enclosed in double quotes.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>String name = "Bob";</p>
+      </div>
+      <h2 id="Java-Variables-Integer">Integer</h2>
+      <p><strong>Integers</strong> store whole numbers.</p>
+      <p>The max value you can store in an integer is <strong>2147483647</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int age = 18;</p>
+      </div>
+      <h2 id="Java-Variables-Double">Double</h2>
+      <p><strong>Doubles</strong> store floating-point numbers (or numbers with decimal values).</p>
+      <p>The max value you can store in a double is approximately <strong>1.7976931348623157 × 10<sup>308</sup></strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>double grade = 85.25;</p>
+      </div>
+      <h2 id="Java-Variables-Character">Character</h2>
+      <p><strong>Characters</strong> store single alphanumeric characters and are enclosed in single quotes.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>char gradeLetter = 'B';</p>
+      </div>
+      <h2 id="Java-Variables-Boolean">Boolean</h2>
+      <p><strong>Booleans</strong> only store two (2) possible values: <strong>true</strong> or <strong>false</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean isOnline = false;</p>
+      </div>
+      <br>
+      <h2 id="Java-Operators">Operators</h2>
+      <p>Every programming language provides a set of operators to use in manipulating variables.</p>
+      <h2 id="Java-Operators-Math">Math Operators</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a + b;</p>
+        <p>int difference = a - b;</p>
+        <p>int product = a * b;</p>
+        <p>int quotient = a / b;</p>
+        <p>int remainder = a % b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Addition">Addition</h2>
+      <p>The <strong>plus sign (+)</strong> is used to add two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a + b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Subtraction">Subtraction</h2>
+      <p>The <strong>dash sign (-)</strong> is used to subtract two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a - b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Multiplication">Multiplication</h2>
+      <p>The <strong>asterisk sign (*)</strong> is used to multiply two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a * b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Division">Division</h2>
+      <p>The <strong>forward slash sign (/)</strong> is used to divide two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a / b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Modulo">Modulo</h2>
+      <p>The <strong>percent sign (%)</strong> is used to divide two numbers and returns the remainder.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a % b;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Increment">Increment</h2>
+      <p>The <strong>double plus sign (++)</strong> is used to increase the value of a number by <strong>one (1)</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a++;</p>
+      </div>
+      <h2 id="Java-Operators-Math-Decrement">Decrement</h2>
+      <p>The <strong>double dash sign (--)</strong> is used to decrease the value of a number by <strong>one (1)</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a--;</p>
+      </div>
+      <br>
+      <h2 id="Java-Operators-Assignment">Assignment Operators</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a += 5;</p>
+        <p>a -= 5;</p>
+        <p>a *= 5;</p>
+        <p>a /= 5;</p>
+      </div>
+      <h2 id="Java-Operators-Assignment-Assignment">Assignment</h2>
+      <p>The <strong>equal sign (=)</strong> is used to assign a value to a variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+      </div>
+      <h2 id="Java-Operators-Assignment-Addition">Addition and Assignment</h2>
+      <p>The <strong>plus and equal sign (+=)</strong> is used to add a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a += 5;</p>
+      </div>
+      <h2 id="Java-Operators-Assignment-Subtraction">Subtraction and Assignment</h2>
+      <p>The <strong>dash and equal sign (-=)</strong> is used to subtract a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a -= 5;</p>
+      </div>
+      <h2 id="Java-Operators-Assignment-Multiplication">Multiplication and Assignment</h2>
+      <p>The <strong>asterisk and equal sign (*=)</strong> is used to multiply a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a *= 5;</p>
+      </div>
+      <h2 id="Java-Operators-Assignment-Division">Division and Assignment</h2>
+      <p>The <strong>forward slash and equal sign (/=)</strong> is used to divide a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a /= 5;</p>
+      </div>
+      <br>
+      <h2 id="Java-Operators-Conditional">Conditional Operators</h2>
+      <p>These operators always returns a <strong>boolean</strong> value.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 == 5;</p>
+        <p>boolean b = 6 != 5;</p>
+        <p>boolean c = 6 < 5;</p>
+        <p>boolean d = 6 > 5;</p>
+        <p>boolean e = 6 <= 5;</p>
+        <p>boolean f = 6 >= 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsEqualTo">Equal to</h2>
+      <p>The <strong>double equal sign (==)</strong> is used to compare two values together and check if the left variable is equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 == 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsNotEqualTo">Not equal to</h2>
+      <p>The <strong>exclamation point and equal sign (!=)</strong> is used to compare two values together and check if the left variable is not equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 != 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsLessThan">Less than</h2>
+      <p>The <strong>left bracket symbol (<)</strong> is used to compare two values together and check if the left variable is less than the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 < 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsGreaterThan">Greater than</h2>
+      <p>The <strong>right bracket symbol (>)</strong> is used to compare two values together and check if the left variable is greater than the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 > 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsLessThanOrEqualTo">Less than or equal to</h2>
+      <p>The <strong>left bracket symbol and equal sign (<=)</strong> is used to compare two values together and check if the left variable is less than or equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 <= 5;</p>
+      </div>
+      <h2 id="Java-Operators-Conditional-IsGreaterThanOrEqualTo">Greater than or equal to</h2>
+      <p>The <strong>right bracket symbol and equal sign (>=)</strong> is used to compare two values together and check if the left variable is greater than or equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = 6 >= 5;</p>
+      </div>
+      <br>
+      <h2 id="Java-Operators-Logical">Logical Operators</h2>
+      <p>These operators always returns a <strong>boolean</strong> value.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = true && false;</p>
+        <p>boolean b = true || false;</p>
+        <p>boolean c = !true;</p>
+      </div>
+      <h2 id="Java-Operators-Logical-And">And</h2>
+      <p>The <strong>double ampersand symbol (&&)</strong> is used to combine multiple conditions.</p>
+      <p>If <strong>both</strong> values are <strong>true</strong>, then the result is <strong>true</strong>.</p>
+      <p>If <strong>one</strong> value is <strong>false</strong>, then the result is <strong>false</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = true && false;</p>
+      </div>
+      <h2 id="Java-Operators-Logical-Or">Or</h2>
+      <p>The <strong>double pipe symbol (||)</strong> is used to combine multiple conditions.</p>
+      <p>If <strong>one</strong> value is <strong>true</strong>, then the result is <strong>true</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = true || false;</p>
+      </div>
+      <h2 id="Java-Operators-Logical-Not">Not</h2>
+      <p>The <strong>exclamation point (!)</strong> is used to reverse a condition.</p>
+      <p>If a condition is <strong>true</strong>, then the result is <strong>false</strong>.</p>
+      <p>If a condition is <strong>false</strong>, then the result is <strong>true</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>boolean a = !true;</p>
+      </div>
+      <br>
+      <h2 id="Java-Basics">Basics</h2>
+      <p>Learning a programming language usually starts with using the console.</p>
+      <h2 id="Java-Basics-WhatYouNeedToKnow">What you need to know</h2>
+      <p>Creating simple programs in Java starts with putting code inside its main loop function.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>class ConsoleApp1 {</p>
+        <p>&nbsp;&nbsp;public static void main(String[] args) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;// your code here</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+      </div>
+      <h2 id="Java-Basics-Output">Output</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>System.out.println("Sample text");</p>
+      </div>
+      <h2 id="Java-Basics-Input">Input</h2>
+      <p>Java uses the <strong>Scanner</strong> package to get input from the console.</p>
+      <p>The <strong>Scanner</strong> package is imported by calling <strong>import java.util.Scanner;</strong> at the top of your class.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>import java.util.Scanner;</p>
+        <br>
+        <p>class ConsoleApp1 {</p>
+        <p>&nbsp;&nbsp;public static void main(String[] args) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Scanner scanner = new Scanner(System.in);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;String a = scanner.nextLine();</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+      </div>
+      <h2 id="Java-Basics-Conditional">Conditional Statements</h2>
+      <p>Conditional statements make use of the keywords <strong>if</strong>, <strong>else</strong>, and <strong>else if</strong>.</p>
+      <p>The keyword <strong>if</strong> is always followed by a condition enclosed in parentheses.</p>
+      <p><strong>If</strong> the condition inside the parentheses is <strong>true</strong>, it will then execute the code it contains.</p>
+      <p><strong>Else</strong>, it will then execute the code inside the <strong>else</strong> block.</p>
+      <p>The <strong>else if</strong> keyword simply combines both the <strong>if</strong> and <strong>else</strong> statement.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>if (6 == 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>else if (6 < 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>else</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="Java-Basics-Looping">Looping Statements</h2>
+      <p>Looping statements make use of the keywords <strong>for</strong>, <strong>while</strong>, and <strong>do</strong>.</p>
+      <h2 id="Java-Basics-Looping-While">While</h2>
+      <p>The keyword <strong>while</strong> is always followed by a condition enclosed in parentheses.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>while (6 != 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="Java-Basics-Looping-For">For</h2>
+      <p>The keyword <strong>for</strong> is also followed by a statement enclosed in parentheses but requires three (3) statements inside the parentheses: <strong>initialization</strong>, <strong>condition</strong>, and <strong>update</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>for (int a = 0; a < 6; a++)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="Java-Basics-Looping-DoWhile">Do...While</h2>
+      <p>The keyword <strong>do</strong> acts the same as a <strong>while</strong> statment and is always accompanied by the <strong>while</strong> statement.</p>
+      <p>The only difference being: <strong>do...while</strong> statements executes the code inside it first before checking the condition; and the <strong>while</strong> statements checks for the condition first before executing.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>do</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>while (6 != 5);</p>
+      </div>
+      <br>
+      <h1 id="CSharp">C#</h1>
+      <h2 id="CSharp-Variables">Variables</h2>
+      <p>These store data for processing.</p>
+      <p>A variable is given a <strong>data type</strong> and a <strong>name</strong> (or <strong>identifier</strong>).</p>
+      <p>A <strong>data type</strong> tells the system what kind of data it should store and a <strong>name</strong> or an <strong>identifier</strong> is set by a programmer to uniquely reference a specific data.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>string name = "Bob";</p>
+        <p>int age = 18;</p>
+        <p>double grade = 85.25;</p>
+        <p>char gradeLetter = 'B';</p>
+        <p>bool isOnline = false;</p>
+      </div>
+      <h2 id="CSharp-Variables-String">String</h2>
+      <p><strong>Strings</strong> store a sequence of characters and are enclosed in double quotes.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>string name = "Bob";</p>
+      </div>
+      <h2 id="CSharp-Variables-Integer">Integer</h2>
+      <p><strong>Integers</strong> store whole numbers.</p>
+      <p>The max value you can store in an integer is <strong>2147483647</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int age = 18;</p>
+      </div>
+      <h2 id="CSharp-Variables-Double">Double</h2>
+      <p><strong>Doubles</strong> store floating-point numbers (or numbers with decimal values).</p>
+      <p>The max value you can store in a double is approximately <strong>1.7976931348623157 × 10<sup>308</sup></strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>double grade = 85.25;</p>
+      </div>
+      <h2 id="CSharp-Variables-Character">Character</h2>
+      <p><strong>Characters</strong> store single alphanumeric characters and are enclosed in single quotes.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>char gradeLetter = 'B';</p>
+      </div>
+      <h2 id="CSharp-Variables-Boolean">Boolean</h2>
+      <p><strong>Booleans</strong> only store two (2) possible values: <strong>true</strong> or <strong>false</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool isOnline = false;</p>
+      </div>
+      <br>
+      <h2 id="CSharp-Operators">Operators</h2>
+      <p>Every programming language provides a set of operators to use in manipulating variables.</p>
+      <h2 id="CSharp-Operators-Math">Math Operators</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a + b;</p>
+        <p>int difference = a - b;</p>
+        <p>int product = a * b;</p>
+        <p>int quotient = a / b;</p>
+        <p>int remainder = a % b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Addition">Addition</h2>
+      <p>The <strong>plus sign (+)</strong> is used to add two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a + b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Subtraction">Subtraction</h2>
+      <p>The <strong>dash sign (-)</strong> is used to subtract two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a - b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Multiplication">Multiplication</h2>
+      <p>The <strong>asterisk sign (*)</strong> is used to multiply two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a * b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Division">Division</h2>
+      <p>The <strong>forward slash sign (/)</strong> is used to divide two numbers.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a / b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Modulo">Modulo</h2>
+      <p>The <strong>percent sign (%)</strong> is used to divide two numbers and returns the remainder.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>int b = 5;</p>
+        <p>int sum = a % b;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Increment">Increment</h2>
+      <p>The <strong>double plus sign (++)</strong> is used to increase the value of a number by <strong>one (1)</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a++;</p>
+      </div>
+      <h2 id="CSharp-Operators-Math-Decrement">Decrement</h2>
+      <p>The <strong>double dash sign (--)</strong> is used to decrease the value of a number by <strong>one (1)</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a--;</p>
+      </div>
+      <br>
+      <h2 id="CSharp-Operators-Assignment">Assignment Operators</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a += 5;</p>
+        <p>a -= 5;</p>
+        <p>a *= 5;</p>
+        <p>a /= 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Assignment-Assignment">Assignment</h2>
+      <p>The <strong>equal sign (=)</strong> is used to assign a value to a variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+      </div>
+      <h2 id="CSharp-Operators-Assignment-Addition">Addition and Assignment</h2>
+      <p>The <strong>plus and equal sign (+=)</strong> is used to add a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a += 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Assignment-Subtraction">Subtraction and Assignment</h2>
+      <p>The <strong>dash and equal sign (-=)</strong> is used to subtract a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a -= 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Assignment-Multiplication">Multiplication and Assignment</h2>
+      <p>The <strong>asterisk and equal sign (*=)</strong> is used to multiply a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a *= 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Assignment-Division">Division and Assignment</h2>
+      <p>The <strong>forward slash and equal sign (/=)</strong> is used to divide a value to a variable with the same data type and assign it to itself.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>int a = 6;</p>
+        <p>a /= 5;</p>
+      </div>
+      <br>
+      <h2 id="CSharp-Operators-Conditional">Conditional Operators</h2>
+      <p>These operators always returns a <strong>bool</strong> value.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 == 5;</p>
+        <p>bool b = 6 != 5;</p>
+        <p>bool c = 6 < 5;</p>
+        <p>bool d = 6 > 5;</p>
+        <p>bool e = 6 <= 5;</p>
+        <p>bool f = 6 >= 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsEqualTo">Equal to</h2>
+      <p>The <strong>double equal sign (==)</strong> is used to compare two values together and check if the left variable is equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 == 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsNotEqualTo">Not equal to</h2>
+      <p>The <strong>exclamation point and equal sign (!=)</strong> is used to compare two values together and check if the left variable is not equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 != 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsLessThan">Less than</h2>
+      <p>The <strong>left bracket symbol (<)</strong> is used to compare two values together and check if the left variable is less than the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 < 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsGreaterThan">Greater than</h2>
+      <p>The <strong>right bracket symbol (>)</strong> is used to compare two values together and check if the left variable is greater than the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 > 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsLessThanOrEqualTo">Less than or equal to</h2>
+      <p>The <strong>left bracket symbol and equal sign (<=)</strong> is used to compare two values together and check if the left variable is less than or equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool  a = 6 <= 5;</p>
+      </div>
+      <h2 id="CSharp-Operators-Conditional-IsGreaterThanOrEqualTo">Greater than or equal to</h2>
+      <p>The <strong>right bracket symbol and equal sign (>=)</strong> is used to compare two values together and check if the left variable is greater than or equal to the right variable.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = 6 >= 5;</p>
+      </div>
+      <br>
+      <h2 id="CSharp-Operators-Logical">Logical Operators</h2>
+      <p>These operators always returns a <strong>bool</strong> value.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = true && false;</p>
+        <p>bool b = true || false;</p>
+        <p>bool c = !true;</p>
+      </div>
+      <h2 id="CSharp-Operators-Logical-And">And</h2>
+      <p>The <strong>double ampersand symbol (&&)</strong> is used to combine multiple conditions.</p>
+      <p>If <strong>both</strong> values are <strong>true</strong>, then the result is <strong>true</strong>.</p>
+      <p>If <strong>one</strong> value is <strong>false</strong>, then the result is <strong>false</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = true && false;</p>
+      </div>
+      <h2 id="CSharp-Operators-Logical-Or">Or</h2>
+      <p>The <strong>double pipe symbol (||)</strong> is used to combine multiple conditions.</p>
+      <p>If <strong>one</strong> value is <strong>true</strong>, then the result is <strong>true</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = true || false;</p>
+      </div>
+      <h2 id="CSharp-Operators-Logical-Not">Not</h2>
+      <p>The <strong>exclamation point (!)</strong> is used to reverse a condition.</p>
+      <p>If a condition is <strong>true</strong>, then the result is <strong>false</strong>.</p>
+      <p>If a condition is <strong>false</strong>, then the result is <strong>true</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>bool a = !true;</p>
+      </div>
+      <br>
+      <h2 id="CSharp-Basics">Basics</h2>
+      <p>Learning a programming language usually starts with using the console.</p>
+      <h2 id="CSharp-Basics-WhatYouNeedToKnow">What you need to know</h2>
+      <p>Creating simple programs in C# starts with putting code inside its main loop function.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>using System;</p>
+        <br>
+        <p>namespace ConsoleApp1</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;internal class Program</p>
+        <p>&nbsp;&nbsp;{</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// your code here</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+      </div>
+      <h2 id="CSharp-Basics-Output">Output</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>Console.WriteLine("Sample text");</p>
+      </div>
+      <h2 id="CSharp-Basics-Input">Input</h2>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>string a = Console.ReadLine();</p>
+      </div>
+      <h2 id="CSharp-Basics-Conditional">Conditional Statements</h2>
+      <p>Conditional statements make use of the keywords <strong>if</strong>, <strong>else</strong>, and <strong>else if</strong>.</p>
+      <p>The keyword <strong>if</strong> is always followed by a condition enclosed in parentheses.</p>
+      <p><strong>If</strong> the condition inside the parentheses is <strong>true</strong>, it will then execute the code it contains.</p>
+      <p><strong>Else</strong>, it will then execute the code inside the <strong>else</strong> block.</p>
+      <p>The <strong>else if</strong> keyword simply combines both the <strong>if</strong> and <strong>else</strong> statement.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>if (6 == 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>else if (6 < 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>else</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="CSharp-Basics-Looping">Looping Statements</h2>
+      <p>Looping statements make use of the keywords <strong>for</strong>, <strong>while</strong>, and <strong>do</strong>.</p>
+      <h2 id="CSharp-Basics-Looping-While">While</h2>
+      <p>The keyword <strong>while</strong> is always followed by a condition enclosed in parentheses.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>while (6 != 5)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="CSharp-Basics-Looping-For">For</h2>
+      <p>The keyword <strong>for</strong> is also followed by a statement enclosed in parentheses but requires three (3) statements inside the parentheses: <strong>initialization</strong>, <strong>condition</strong>, and <strong>update</strong>.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>for (int a = 0; a < 6; a++)</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+      </div>
+      <h2 id="CSharp-Basics-Looping-DoWhile">Do...While</h2>
+      <p>The keyword <strong>do</strong> acts the same as a <strong>while</strong> statment and is always accompanied by the <strong>while</strong> statement.</p>
+      <p>The only difference being: <strong>do...while</strong> statements executes the code inside it first before checking the condition; and the <strong>while</strong> statements checks for the condition first before executing.</p>
+      <br>
+      <p>See sample code below:</p>
+      <div class="code_snippet">
+        <p>do</p>
+        <p>{</p>
+        <p>&nbsp;&nbsp;// your code here</p>
+        <p>}</p>
+        <p>while (6 != 5);</p>
+      </div>
+    </div>
+  </body>
+  <script>
+  </script>
+</html>
